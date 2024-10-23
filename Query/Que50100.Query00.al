@@ -200,3 +200,35 @@ query 50106 "Item Query-full Outer Join"
         }
     }
 }
+
+query 50107 "Item Ledger Query"
+{
+    QueryType = Normal;
+    QueryCategory = 'Item List', 'Customer List';
+    elements
+    {
+        dataitem(Item; Item)
+        {
+            column(No_; "No.")
+            {
+            }
+            column("Description"; "Description")
+            {
+            }
+            dataitem(Item_Ledger_Entry; "Item Ledger Entry")
+            {
+                DataItemLink = "Item No." = Item."No.";
+                column(Item_No_; "Item No.") { }
+                column(Document_No_; "Document No.")
+                { }
+                column(Document_Date; "Document Date") { }
+                column(Quantity; Quantity)
+                { }
+                column(Entry_Type; "Entry Type")
+                { }
+            }
+        }
+    }
+
+
+}
